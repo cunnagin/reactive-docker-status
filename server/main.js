@@ -16,6 +16,11 @@ import DockerEvents from 'docker-events' 	// Docker event stream
 // core server code to run on startup
 Meteor.startup(() => {
 
+	// publish the 'dockerStatus' collection
+	Meteor.publish('dockerStatus', function(){
+		return dockerStatus.find()
+	})
+
 	// this class object is used for each docker instance to monitor updates
 	// highly leveraging the great npm packages 'dockerode' & 'docker-events'
 	class reactiveDockerStatus {
