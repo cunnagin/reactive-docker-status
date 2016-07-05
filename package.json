@@ -1,0 +1,13 @@
+{
+  "name": "docker-api",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "docker-events": "0.0.2",
+    "dockerode": "^2.2.10",
+    "fibers": "^1.0.13",
+    "meteor-node-stubs": "^0.2.3"
+  }
+}
