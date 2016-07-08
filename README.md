@@ -22,9 +22,9 @@ argName => (string, optional) ...a simple name for this docker service object, e
 
 A few global Template helpers are available to help see the results:
 
-```
-dockerContainers  
-dockerPrint
+```js
+dockerContainers() 
+dockerPrint(containerRecord)
 ```
 
 Here is an example HTML file for the client to show how to use these:
