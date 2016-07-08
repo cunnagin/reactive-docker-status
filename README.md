@@ -29,7 +29,7 @@ dockerPrint
 
 Here is an example HTML file for the client to show how to use these:
 
-```js
+```html
 <!--	package: npm
  		end: client
 		name: reactive-docker-status
