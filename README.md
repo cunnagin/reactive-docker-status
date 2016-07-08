@@ -14,7 +14,7 @@ dockerStatusCreate(argHostName, argPort, argName)
 
 Where:
 
-```
+```node
 argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver'
 argPort => (string, optional) ...the port for the docker API, e.g. default is '2375'
 argName => (string, optional) ...a simple name for this docker service object, e.g. default is '_dockerList'
@@ -29,7 +29,7 @@ dockerPrint
 
 Here is an example HTML file for the client to show how to use these:
 
-```
+```node
 <!--	package: npm
  		end: client
 		name: reactive-docker-status
