@@ -16,8 +16,8 @@
 
 <template name='status'>
   <h2>Docker Containers</h2>
-  {{#each container in dockerList}}
-    <h3>record #{{@index}}</h3>
-    <h4>{{print container}}</h4>
+  {{#each container in dockerContainers}}
+    <h3>Container #{{@index}}</h3>
+    <h4>{{dockerPrint container}}</h4>
   {{/each}}
 </template>

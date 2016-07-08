@@ -6,7 +6,7 @@
 
 import { Meteor } from 'meteor/meteor'
 
-// my 'dockerstatus' mongodb collection
+// my 'dockerStatus' mongodb collection
 import { dockerStatus } from '../imports/collections.js'
 
 // the 2 heavy-lifter libraries
@@ -25,7 +25,7 @@ Meteor.startup(() => {
 	// highly leveraging the great npm packages 'dockerode' & 'docker-events'
 	class reactiveDockerStatus {
 
-		constructor(argName, argHostname, argPort){
+		constructor(argHostname, argPort, argName){
 
 			// if this is the 1st instantiation, better initialize the mongo collection
 			if (Object.keys(reactiveDockerStatus.prototype.emitterList).length==0) {
@@ -37,9 +37,13 @@ Meteor.startup(() => {
 				})
 			}
 
-			// use this shared-state object to track new Docker emitter streams
-			reactiveDockerStatus.prototype.emitterList[argName] = { hostname: argHostname, port: argPort }
-			console.log(JSON.stringify(reactiveDockerStatus.prototype.emitterList))
+			if (argPort==undefined) {
+				argPort='2375'
+			}
+
+			if (argName==undefined) {
+				argName='_dockerList'
+			}			
 
 			// forgive me... our object root scope
 			self = this
@@ -65,7 +69,10 @@ Meteor.startup(() => {
 				}
 			}))
 
-			return self
+			// add this object to the shared-state class-proto object for tracking
+			reactiveDockerStatus.prototype.emitterList[argName] = { name: argName, rdsObject: self }
+
+			return
 		}
 	}
 
@@ -73,8 +80,14 @@ Meteor.startup(() => {
 	reactiveDockerStatus.prototype.emitterList = {}
 
 	// create a couple of reactive-docker-status object instance
-	var rds = new reactiveDockerStatus('dockerList', 'http://meteor-vm.ldd.rds.lexmark.com', '2375', 'dockerStatus')
-	var rds2 = new reactiveDockerStatus('dockerPoop', 'http://meteor-vm.ldd.rds.lexmark.com', '2375', 'dockerStatus')
+//	new reactiveDockerStatus('dockerList', 'http://meteor-vm.ldd.rds.lexmark.com', '2375', 'dockerStatus')
+//	new reactiveDockerStatus('dockerPoop', 'http://meteor-vm.ldd.rds.lexmark.com', '2375', 'dockerStatus')
+
+	Meteor.methods({
+		'dockerStatusCreate': function(argName, argHostname, argPort){
+			new reactiveDockerStatus(argName, argHostname, argPort)
+		}
+	})
+
 
 })
-
