@@ -20,3 +20,31 @@ A few global Template helpers are available to help see the results:
 
 `dockerContainers
 dockerPrint`
+
+Here is an example HTML file for the client to show how to use these:
+
+`<!--	package: npm
+ 		end: client
+		name: reactive-docker-status
+		author: stephen cunnagin
+		info: provides a reactive status for docker to a meteor application
+-->
+
+<head>
+  <title>docker-api</title>
+</head>
+
+<body>
+  <h1>Reactive Docker Status for Meteor</h1>
+  {{> status}}
+</body>
+
+<template name='status'>
+  <h2>Docker Containers</h2>
+  {{#each container in dockerContainers}}
+    <h3>Container #{{@index}}</h3>
+    <h4>{{dockerPrint container}}</h4>
+  {{/each}}
+</template>`
+
+stephen
