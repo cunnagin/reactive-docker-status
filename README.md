@@ -8,13 +8,13 @@ Internally, a mongo collection called *_dockerStatus* is created and stores obje
 
 In order to create a docker service object, simply make a call from your client (this actually calls a method stub on the server) as such:
 
-```node
+```js
 dockerStatusCreate(argHostName, argPort, argName)
 ```
 
 Where:
 
-```node
+```
 argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver'
 argPort => (string, optional) ...the port for the docker API, e.g. default is '2375'
 argName => (string, optional) ...a simple name for this docker service object, e.g. default is '_dockerList'
@@ -29,7 +29,7 @@ dockerPrint
 
 Here is an example HTML file for the client to show how to use these:
 
-```node
+```js
 <!--	package: npm
  		end: client
 		name: reactive-docker-status
