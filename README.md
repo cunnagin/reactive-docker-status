@@ -12,9 +12,11 @@ In order to create a docker service object, simply make a call from your client 
 
 Where:
 
-```argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver'
+```
+argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver'
 argPort => (string, optional) ...the port for the docker API, e.g. default is '2375'
-argName => (string, optional) ...a simple name for this docker service object, e.g. default is '_dockerList'```
+argName => (string, optional) ...a simple name for this docker service object, e.g. default is '_dockerList'
+```
 
 A few global Template helpers are available to help see the results:
 
@@ -23,7 +25,8 @@ dockerPrint```
 
 Here is an example HTML file for the client to show how to use these:
 
-```<!--	package: npm
+```
+<!--	package: npm
  		end: client
 		name: reactive-docker-status
 		author: stephen cunnagin
@@ -45,6 +48,7 @@ Here is an example HTML file for the client to show how to use these:
     <h3>Container #{{@index}}</h3>
     <h4>{{dockerPrint container}}</h4>
   {{/each}}
-</template>```
+</template>
+```
 
 stephen
