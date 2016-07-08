@@ -8,7 +8,9 @@ Internally, a mongo collection called *_dockerStatus* is created and stores obje
 
 In order to create a docker service object, simply make a call from your client (this actually calls a method stub on the server) as such:
 
-```dockerStatusCreate(argHostName, argPort, argName)```
+```
+dockerStatusCreate(argHostName, argPort, argName)
+```
 
 Where:
 
@@ -20,8 +22,10 @@ argName => (string, optional) ...a simple name for this docker service object, e
 
 A few global Template helpers are available to help see the results:
 
-```dockerContainers  
-dockerPrint```
+```
+dockerContainers  
+dockerPrint
+```
 
 Here is an example HTML file for the client to show how to use these:
 
