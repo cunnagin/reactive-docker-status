@@ -1,0 +1,334 @@
+{
+  "builtBy": "meteor/21",
+  "unibuildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/package.js": "8b2467dc1b969401ee23d71f9f36b410c4c15139",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/.npm/package/npm-shrinkwrap.json": "b0abf1f4fdf0179094cb0f8d07004bb5f29f1ef5",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/server/reactive-docker-status.js": "5564bea1afe9a712182fc41cbeda5813c72b7699",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports/collections.js": "38e9ffb8be604fb391a84c919572b9f8515c5ba3",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/reactive-docker-status-tests.js": "16b335761b957558185364f3bcbb3a3eb2ac7433"
+      },
+      "directories": [
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status",
+          "include": [
+            "\\.js$",
+            "\\.jsx$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "package.js",
+            "reactive-docker-status-tests.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^client\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": [
+            "imports/",
+            "server/"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports",
+          "include": [
+            "\\.js$",
+            "\\.jsx$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "collections.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^client\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/server",
+          "include": [
+            "\\.js$",
+            "\\.jsx$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "reactive-docker-status.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/server",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^client\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/package.js": "8b2467dc1b969401ee23d71f9f36b410c4c15139",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/.npm/package/npm-shrinkwrap.json": "b0abf1f4fdf0179094cb0f8d07004bb5f29f1ef5",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/client/reactive-docker-status.js": "baf1bcc2c3c709a0831533637a4f0cec6dc4056d",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports/collections.js": "38e9ffb8be604fb391a84c919572b9f8515c5ba3",
+        "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/reactive-docker-status-tests.js": "16b335761b957558185364f3bcbb3a3eb2ac7433"
+      },
+      "directories": [
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status",
+          "include": [
+            "\\.css$",
+            "\\.js$",
+            "\\.jsx$",
+            "\\.html$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "package.js",
+            "reactive-docker-status-tests.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^server\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": [
+            "client/",
+            "imports/"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/client",
+          "include": [
+            "\\.css$",
+            "\\.js$",
+            "\\.jsx$",
+            "\\.html$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "reactive-docker-status.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/client",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^server\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports",
+          "include": [
+            "\\.css$",
+            "\\.js$",
+            "\\.jsx$",
+            "\\.html$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "collections.js"
+          ]
+        },
+        {
+          "absPath": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/imports",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^server\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status/package.js": "8b2467dc1b969401ee23d71f9f36b410c4c15139"
+    },
+    "directories": []
+  },
+  "pluginProviderPackageMap": {
+    "cunnagin:reactive-docker-status": {
+      "kind": "local",
+      "sourceRoot": "/home/meteor/apps/rds - meteor package/packages/reactive-docker-status"
+    },
+    "meteor": {
+      "kind": "versioned",
+      "version": "1.1.15_1"
+    },
+    "meteor-base": {
+      "kind": "versioned",
+      "version": "1.0.4"
+    },
+    "mongo": {
+      "kind": "versioned",
+      "version": "1.1.9_1"
+    },
+    "ecmascript": {
+      "kind": "versioned",
+      "version": "0.4.6_1"
+    },
+    "es5-shim": {
+      "kind": "versioned",
+      "version": "4.5.12_1"
+    },
+    "webapp": {
+      "kind": "versioned",
+      "version": "1.2.9_1"
+    },
+    "underscore": {
+      "kind": "versioned",
+      "version": "1.0.9"
+    },
+    "ddp": {
+      "kind": "versioned",
+      "version": "1.2.5"
+    },
+    "livedata": {
+      "kind": "versioned",
+      "version": "1.0.18"
+    },
+    "hot-code-push": {
+      "kind": "versioned",
+      "version": "1.0.4"
+    },
+    "modules": {
+      "kind": "versioned",
+      "version": "0.6.4"
+    },
+    "ecmascript-runtime": {
+      "kind": "versioned",
+      "version": "0.2.11_1"
+    },
+    "babel-runtime": {
+      "kind": "versioned",
+      "version": "0.1.9_1"
+    },
+    "promise": {
+      "kind": "versioned",
+      "version": "0.7.2_1"
+    },
+    "ddp-client": {
+      "kind": "versioned",
+      "version": "1.2.8_1"
+    },
+    "ddp-server": {
+      "kind": "versioned",
+      "version": "1.2.8_1"
+    },
+    "autoupdate": {
+      "kind": "versioned",
+      "version": "1.2.10"
+    },
+    "reload": {
+      "kind": "versioned",
+      "version": "1.1.10"
+    },
+    "templating": {
+      "kind": "versioned",
+      "version": "1.1.12_1"
+    }
+  },
+  "includeCordovaUnibuild": false
+}
