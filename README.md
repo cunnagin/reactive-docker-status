@@ -8,7 +8,7 @@ Internally, a mongo collection called *_dockerStatus* is created and stores obje
 
 In order to create a docker service object, simply make a call from your client (this actually calls a method stub on the server) as such:
 
-```
+```node
 dockerStatusCreate(argHostName, argPort, argName)
 ```
 
