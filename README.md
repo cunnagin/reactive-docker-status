@@ -12,7 +12,7 @@ In order to create a docker service object, simply make a call from your client 
 
 Where:
 
-`argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver`
+`argHostName => (string, required) ...the desired docker hostname to monitor, e.g. 'http://my.dockerserver
 argPort => (string, optional) ...the port for the docker API, e.g. default is '2375'
 argName => (string, optional) ...a simple name for this docker service object, e.g. default is '_dockerList'`
 
