@@ -4,7 +4,7 @@ This is a Meteor (1.3+) package that provides a reactive wrapper around the npm 
 
 `meteor add cunnagin:reactive-docker-status`
 
-Internally, a mongo collection called <i>_dockerStatus<i> is created and stores objects representing the status for each docker service being monitored. All monitoring occurs from the Meteor server.
+Internally, a mongo collection called *_dockerStatus* is created and stores objects representing the status for each docker service being monitored. All monitoring occurs from the Meteor server.
 
 In order to create a docker service object, simply make a call from your client (this actually calls a method stub on the server) as such:
 
