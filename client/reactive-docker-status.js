@@ -22,7 +22,7 @@ Template.registerHelper('dockerPrint', (container)=> {
 	return JSON.stringify(container)
 })
 
-export function dockerStatusCreate(argHostName, argPort, argName){
+dockerStatusCreate = function(argHostName, argPort, argName){
 	Meteor.call('dockerStatusCreate', argHostName, argPort, argName, function(){
 		console.log('Created New Docker Status Object on Server')
 	})

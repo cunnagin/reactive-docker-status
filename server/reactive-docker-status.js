@@ -1,11 +1,3 @@
-// package: npm
-// end: server
-// name: reactive-docker-status
-// author: stephen cunnagin
-// info: provides a reactive status for docker to a meteor application
-
-import { Meteor } from 'meteor/meteor'
-
 // my 'dockerStatus' mongodb collection
 import { dockerStatus } from '../imports/collections.js'
 
@@ -13,11 +5,14 @@ import { dockerStatus } from '../imports/collections.js'
 import Docker from 'dockerode'				// Docker API
 import DockerEvents from 'docker-events' 	// Docker event stream
 
+console.log('*** Server code up and running ***')
+
 // core server code to run on startup
 Meteor.startup(() => {
 
 	// publish the 'dockerStatus' collection
 	Meteor.publish('dockerStatus', function(){
+		console.log('*** Publishing the dockerStatus collection ***')
 		return dockerStatus.find()
 	})
 
@@ -81,9 +76,13 @@ Meteor.startup(() => {
 
 	Meteor.methods({
 		'dockerStatusCreate': function(argHostname, argPort, argName){
-			new reactiveDockerStatus(argHostname, argPort, argName)
+			console.log('*** Creating new docker-status object ***')
+			try {
+				new reactiveDockerStatus(argHostname, argPort, argName)
+			} catch(err) {
+				console.log('!!! Whoops... could not make docker-status object !!!',err)
+			}
 		}
 	})
-
-
+	
 })
