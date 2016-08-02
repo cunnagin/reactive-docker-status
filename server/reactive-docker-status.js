@@ -1,3 +1,11 @@
+// package: npm
+// end: server
+// name: reactive-docker-status
+// author: stephen cunnagin
+// info: provides a reactive status for docker to a meteor application
+
+import { Meteor } from 'meteor/meteor'
+
 // my 'dockerStatus' mongodb collection
 import { dockerStatus } from '../imports/collections.js'
 
@@ -20,54 +28,64 @@ Meteor.startup(() => {
 	// highly leveraging the great npm packages 'dockerode' & 'docker-events'
 	class reactiveDockerStatus {
 
-		constructor(argHostname, argPort, argName){
+		constructor(argDS){
 
-			// if this is the 1st instantiation, better initialize the mongo collection
-			if (Object.keys(reactiveDockerStatus.prototype.emitterList).length==0) {
-				dockerStatus.remove({}, function(){
-						self.docker.listContainers(Meteor.bindEnvironment(function(err,result){
-						let rec = { name: argName, data: result }
-						dockerStatus.upsert({ name: argName}, rec)
-					}))
-				})
-			}
-
-			if (argPort==undefined) {
-				argPort='2375'
-			}
-
-			if (argName==undefined) {
-				argName='_dockerList'
-			}			
-
-			// forgive me... our object root scope
-			self = this
-			
-			// check if there is already a reactive collection for this hostname
-			this.docker = new Docker({host: argHostname, port: argPort })
-			this.emitter = new DockerEvents({docker: this.docker})
-
-			// define emitter events
-			this.emitter.start()
-
-			this.emitter.on('connect', Meteor.bindEnvironment(function(){
-				console.log('*** Docker API Connected ***')
-			}))
-
-			this.emitter.on('_message', Meteor.bindEnvironment(function(message){
-				console.log(`...from docker: ${JSON.stringify(message)}`)
-				if ((message.status=='start')||(message.status=='destroy')){
-					self.docker.listContainers(Meteor.bindEnvironment(function(err,result){
-						let rec = { name: argName, data: result }
-						dockerStatus.upsert({ name: argName}, rec)
-					}))
+			try {
+				// Check for minimal argument passed ... the hostname
+				if (argDS.host==undefined) {
+					throw 'InvalidHostname'
 				}
-			}))
 
-			// add this object to the shared-state class-proto object for tracking
-			reactiveDockerStatus.prototype.emitterList[argName] = { name: argName, rdsObject: self }
+				// See if additional arguments were passed and construct defaults if needed
+				if (argDS.port==undefined) {
+					argDS.port='2375'
+				}
 
-			return
+				if (argDS.name==undefined) {
+					argDS.name='_dockerList'
+				}
+
+				// Forgive me... reference our object root scope
+				self = this
+
+				// Create a new dockerode object
+				this.docker = new Docker(argDS)
+				this.emitter = new DockerEvents({docker: this.docker})
+
+				// define emitter events
+				this.emitter.start()
+
+				this.emitter.on('connect', Meteor.bindEnvironment(function(){
+					console.log('*** Docker API Connected ***')
+				}))
+
+				this.emitter.on('_message', Meteor.bindEnvironment(function(message){
+					console.log(`...from docker: ${JSON.stringify(message)}`)
+					if ((message.status=='start')||(message.status=='destroy')){
+						self.docker.listContainers(Meteor.bindEnvironment(function(err,result){
+							let rec = { name: argDS.name, data: result }
+							dockerStatus.upsert({ name: argDS.name}, rec)
+						}))
+					}
+				}))
+
+				// Check the class object tracking running instances of Dockerode/Docker-events objects.
+				// If this is the 1st instantiation, then clear out the mongo collection
+				if (Object.keys(reactiveDockerStatus.prototype.emitterList).length==0) {
+					dockerStatus.remove({}, function(){
+							self.docker.listContainers(Meteor.bindEnvironment(function(err,result){
+							let rec = { name: argDS.name, data: result }
+							dockerStatus.upsert({ name: argDS.name}, rec)
+						}))
+					})
+				}
+
+				// Shared-state dockerStatus object for tracking server instances
+				reactiveDockerStatus.prototype.emitterList[argDS.name] = { name: argDS.name, rdsObject: self }
+			}
+			catch(err) {
+				console.log(err)
+			}
 		}
 	}
 
@@ -75,14 +93,15 @@ Meteor.startup(() => {
 	reactiveDockerStatus.prototype.emitterList = {}
 
 	Meteor.methods({
-		'dockerStatusCreate': function(argHostname, argPort, argName){
+		'dockerStatusCreate': function(argDS){
 			console.log('*** Creating new docker-status object ***')
 			try {
-				new reactiveDockerStatus(argHostname, argPort, argName)
+				new reactiveDockerStatus(argDS)
 			} catch(err) {
-				console.log('!!! Whoops... could not make docker-status object !!!',err)
+				console.log('!!! Failed to make reactiveDockerStatus object !!!',err)
 			}
 		}
 	})
-	
+
+
 })

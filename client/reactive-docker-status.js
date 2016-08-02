@@ -22,8 +22,18 @@ Template.registerHelper('dockerPrint', (container)=> {
 	return JSON.stringify(container)
 })
 
-dockerStatusCreate = function(argHostName, argPort, argName){
-	Meteor.call('dockerStatusCreate', argHostName, argPort, argName, function(){
-		console.log('Created New Docker Status Object on Server')
-	})
+dockerStatusCreate = function(_argDS){
+	// At minimum need to have the Docker server hostname in here... other params are:
+	//      port: '2375' is default [Dockerode]
+	//		ca: local filename for Certificate Authorization file 'ca.pem' [Dockerode]
+	//      cert: local filename for Certificat file 'cert.pem' [Dockerode]
+	//      key: local filename for Public Key 'key.pem' [Dockerode]
+	//      name: short name [custom]
+	if ('host' in _argDS) {
+		Meteor.call('dockerStatusCreate', _argDS, function(){
+			console.log('Created New Docker Status Object on Server')
+		})
+	} else {
+		throw 'Improper Host Argument (_argDS) on Client'
+	}
 }

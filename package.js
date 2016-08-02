@@ -2,7 +2,7 @@
 
 Package.describe({
   summary: 'Provides a reactive collection update for monitoring a docker server status',
-  version: "1.0.0",
+  version: "1.0.2",
   name: "cunnagin:reactive-docker-status",
   git: "https://github.com/cunnagin/reactive-docker-status.git",
   describe: "README.md"
