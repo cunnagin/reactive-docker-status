@@ -7,7 +7,7 @@
 import { Meteor } from 'meteor/meteor'
 
 // my 'dockerStatus' mongodb collection
-import { dockerStatus } from '../imports/collections.js'
+import '../imports/collections.js'
 
 // the 2 heavy-lifter libraries
 import Docker from 'dockerode'				// Docker API

@@ -6,7 +6,7 @@
 
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import { dockerStatus } from '../imports/collections.js'
+import '../imports/collections.js'
 
 Template.body.onCreated(function(){
     Meteor.subscribe('dockerStatus')
@@ -37,3 +37,5 @@ dockerStatusCreate = function(_argDS){
 		throw 'Improper Host Argument (_argDS) on Client'
 	}
 }
+
+//export { dockerStatusCreate, dockerStatus }
